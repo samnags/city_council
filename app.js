@@ -1,6 +1,10 @@
 const express = require('express')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
+const path = require('path')
+const index = require('./server/routes/index')
+const membersRoute = require('./server/routes/members')
+const cookieParser = require('cookie-parser');
 
 // Sets up the express app
 const app = express();
@@ -11,11 +15,14 @@ app.use(logger('dev'));
 // Parses data from incoming requests
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended :false}))
+app.use(cookieParser());
 
-// Sets up default route with JSON return message
-require('./server/routes')(app)
-app.get('*', (req, res) => res.status(200).send({
-  message: 'You have arrived'
-}));
+app.use('/', index);
+app.use('/api', membersRoute);
+
+app.get('*', function (request, response){
+  response.send({message: 'are you lost'})
+});
+
 
 module.exports = app;

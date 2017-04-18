@@ -1,9 +1,8 @@
-const membersController = require('../controllers').members;
+const express = require('express')
+const router  = express.Router();
 
-module.exports = (app) => {
-  app.get('/api', (req, res) => res.status(200).send({
-    message: 'You\'ve hit the Members Api'
-  }));
+router.get('/', (req, res) => res.status(200).send({
+  message: 'Welcome Home!!'
+}));
 
-  app.post('/api/members', membersController.create);
-};
+module.exports = router;

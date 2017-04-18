@@ -2,7 +2,6 @@
 const _ = require('lodash')
 const { Member } = require('../models');
 
-
 module.exports = {
   create(req, res) {
     let newMember = _.pick(req.body, 'firstName', 'lastName', 'party', 'firstDay', 'inOffice');
