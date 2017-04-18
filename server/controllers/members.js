@@ -10,6 +10,12 @@ module.exports = {
       .create(newMember)
       .then(member => res.status(201).send(member))
       .catch(error => res.status(400).send(error))
+  },
+  list(req, res) {
+    return Member
+      .all()
+      .then(members => res.status(200).send(members))
+      .catch(error => res.status(400).send(error))
   }
 };
 
