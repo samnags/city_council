@@ -1,18 +1,20 @@
 'use strict';
+// const Sequelize = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   const Attendance = sequelize.define('Attendance', {
     meetingdId: DataTypes.INTEGER,
     memberId: DataTypes.INTEGER,
     attended: DataTypes.BOOLEAN
   }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
+    // classMethods: {
+    //   associate: function(models) {
+    //     // associations can be defined here
+    //   }
+    // }
   });
   return Attendance;
 };
 
-Attendance.belongsTo(Meeting);
-Attendance.belongsTo(Member);
+// Attendance.belongsTo(Meeting);
+// Attendance.belongsTo(Member);

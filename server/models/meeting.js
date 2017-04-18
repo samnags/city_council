@@ -1,9 +1,11 @@
-'use strict';
-module.exports = function(sequelize, DataTypes) {
-  var Meeting = sequelize.define('Meeting', {
+const Sequelize = require('sequelize');
+
+module.exports = (sequelize, DataTypes) => {
+  const Meeting = sequelize.define('Meeting', {
     inSession: {
-      values: ['yes', 'no', 'recess', 'cancelled', 'no quorom' ]
-    }
+      type: Sequelize.STRING,
+      values: ['yes', 'no', 'recess', 'cancelled', 'no quorom']
+    },
   }, {
     // classMethods: {
     //   associate: function(models) {

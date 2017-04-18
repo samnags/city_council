@@ -1,6 +1,6 @@
 'use strict';
-module.exports = function(sequelize, DataTypes) {
-  var District = sequelize.define('District', {
+module.exports = (sequelize, DataTypes) => {
+  const District = sequelize.define('District', {
     districtId: DataTypes.INTEGER
   }, {
     // classMethods: {

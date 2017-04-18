@@ -13,6 +13,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended :false}))
 
 // Sets up default route with JSON return message
+require('./server/routes')(app)
 app.get('*', (req, res) => res.status(200).send({
   message: 'You have arrived'
 }));

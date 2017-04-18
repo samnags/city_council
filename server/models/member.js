@@ -1,4 +1,5 @@
-'use strict';
+const Sequelize = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   const Member = sequelize.define('Member', {
     firstName: {
@@ -31,7 +32,8 @@ module.exports = (sequelize, DataTypes) => {
     //   associate: (models) => {
     //     User.hasMany(models.Meetings)
     //   }
-    }
-  });
+    // }
+  }
+);
   return Member;
 };
