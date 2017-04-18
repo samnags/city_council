@@ -10,9 +10,21 @@ module.exports = {
       },
       meetingdId: {
         type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        allowNull: false,
+        references: {
+          model: 'Meetings',
+          key: 'id'
+        }
       },
       memberId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        allowNull: false,
+        references: {
+          model: 'Members',
+          key: 'id'
+        }
       },
       attended: {
         type: Sequelize.BOOLEAN

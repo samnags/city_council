@@ -28,11 +28,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   }, {
-    // classMethods: {
-    //   associate: (models) => {
-    //     User.hasMany(models.Meetings)
-    //   }
-    // }
+    classMethods: {
+      associate: (models) => {
+        Member.hasMany(models.Attendance)        
+      }
+    }
   }
 );
   return Member;
