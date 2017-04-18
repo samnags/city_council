@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "samnagourney",
+    "password": null,
+    "database": "citycouncil-dev",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "samnagourney",
+    "password": null,
+    "database": "citycouncil-test",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "samnagourney",
+    "password": null,
+    "database": "citycouncil-production",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
+  }
+}
