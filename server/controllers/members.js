@@ -1,28 +1,35 @@
 // refactor to destructring later
 const _ = require('lodash')
-const { Member } = require('../models');
+const { member } = require('../models');
+const { district } = require('../models');
 
 module.exports = {
   create(req, res) {
     let newMember = _.pick(req.body, 'firstName', 'lastName', 'party', 'districtId', 'firstDay', 'inOffice');
     console.log(newMember)
-    return Member
+    return member
       .create(newMember)
       .then(member => res.status(201).send(member))
       .catch(error => res.status(400).send(error))
   },
   list(req, res) {
-    return Member
-      .all()
+    return member
+    .findAll({
+      include: [{
+        model: district,        
+      }],
+    })
       .then(members => res.status(200).send(members))
       .catch(error => res.status(400).send(error))
   }
 };
 
-// .create({
-//   firstName: req.body.firstName,
-//   lastName: req.body.lastName,
-//   party: req.body.party,
-//   firstDay: req.body.firstDay,
-//   inOffice: req.body.inOffice
+// closest solution so far
+// got
+//
+// .findAll({
+//   include: [{
+//     model: district,
+//     as: 'districtId',
+//   }],
 // })

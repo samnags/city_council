@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  const Meeting = sequelize.define('Meeting', {
+  const Meeting = sequelize.define('meeting', {
     date: {
       type: Sequelize.DATE,
     },

@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  const Member = sequelize.define('Member', {
+  const Member = sequelize.define('member', {
     firstName: {
       type: Sequelize.STRING,
       allowNull: false
@@ -39,7 +39,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: (models) => {
-        Member.hasMany(models.Attendance)
+        Member.hasMany(models.attendance),
+        Member.belongsTo(models.district)
       }
     }
   }
