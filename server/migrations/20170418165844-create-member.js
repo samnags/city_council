@@ -16,6 +16,15 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      districtId: {
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        allowNull: false,
+        references: {
+          model: 'Districts',
+          key: 'id',
+        },
+      },
       party: {
         type: Sequelize.STRING,
         values: ['Democrat', 'Republican', 'Independent']

@@ -4,7 +4,7 @@ const { Member } = require('../models');
 
 module.exports = {
   create(req, res) {
-    let newMember = _.pick(req.body, 'firstName', 'lastName', 'party', 'firstDay', 'inOffice');
+    let newMember = _.pick(req.body, 'firstName', 'lastName', 'party', 'districtId', 'firstDay', 'inOffice');
     console.log(newMember)
     return Member
       .create(newMember)

@@ -14,6 +14,15 @@ module.exports = (sequelize, DataTypes) => {
       type: Sequelize.STRING,
       values: ['Democrat', 'Republican', 'Independent']
     },
+    districtId: {
+      type: Sequelize.INTEGER,
+      onDelete: "CASCADE",
+      allowNull: false,
+      references: {
+        model: 'Districts',
+        key: 'id',
+      },
+    },
     firstDay: {
       type: Sequelize.DATE,
       allowNull: false
@@ -30,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: (models) => {
-        Member.hasMany(models.Attendance)        
+        Member.hasMany(models.Attendance)
       }
     }
   }
