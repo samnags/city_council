@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const District = sequelize.define('district', {
-    districtId: DataTypes.INTEGER
+    district: DataTypes.INTEGER
   }, {
     // classMethods: {
     //   associate: function(models) {
