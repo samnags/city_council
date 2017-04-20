@@ -8,12 +8,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      meetingdId: {
+      meetingId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         allowNull: false,
         references: {
-          model: 'Meetings',
+          model: 'meetings',
           key: 'id'
         }
       },
@@ -22,7 +22,7 @@ module.exports = {
         onDelete: "CASCADE",
         allowNull: false,
         references: {
-          model: 'Members',
+          model: 'members',
           key: 'id'
         }
       },

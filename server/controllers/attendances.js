@@ -3,9 +3,9 @@ const _ = require('lodash')
 const { attendance } = require('../models');
 const { district } = require('../models');
 
-module.exports = {  
+module.exports = {
   create(req, res) {
-    let newAttendancer = _.pick(req.body, 'meetingId', 'memberId', 'attended');
+    let newAttendance = _.pick(req.body, 'meetingId', 'memberId', 'attended');
     console.log(newAttendance)
     return attendance
       .create(newAttendance)

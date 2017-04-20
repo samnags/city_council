@@ -10,11 +10,11 @@ module.exports = (sequelize, DataTypes) => {
       values: ['yes', 'no', 'recess', 'cancelled', 'no quorom']
     },
   }, {
-    // classMethods: {
-    //   associate: function(models) {
-    //     Meeting.hasMany(models.Attendance)
-    //   }
-    // }
+    classMethods: {
+      associate: function(models) {
+        Meeting.hasMany(models.attendance)
+      }
+    }
   });
   return Meeting;
 };
