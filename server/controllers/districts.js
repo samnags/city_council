@@ -4,7 +4,7 @@ const { district } = require('../models');
 
 module.exports = {
   create(req, res) {
-    let newDistrict = _.pick(req.body, 'districtId');
+    let newDistrict = _.pick(req.body, 'district');
     console.log(newDistrict)
     return district
       .create(newDistrict)
