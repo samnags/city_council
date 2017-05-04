@@ -14,14 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       type: Sequelize.STRING,
       values: ['Democrat', 'Republican', 'Independent']
     },
-    districtId: {
-      type: Sequelize.INTEGER,
-      onDelete: "CASCADE",
-      allowNull: false,
-      references: {
-        model: 'Districts',
-        key: 'id',
-      },
+    district: {
+      type: Sequelize.INTEGER,      
     },
     firstDay: {
       type: Sequelize.DATE,
@@ -39,8 +33,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: (models) => {
-        Member.hasMany(models.attendance),
-        Member.belongsTo(models.district)
+        Member.hasMany(models.attendance)
+        // Member.belongsTo(models.district)
       }
     }
   }

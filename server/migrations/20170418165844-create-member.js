@@ -16,14 +16,14 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      districtId: {
+      district: {
         type: Sequelize.INTEGER,
-        onDelete: "CASCADE",
-        allowNull: false,
-        references: {
-          model: 'districts',
-          key: 'id',
-        },
+        // onDelete: "CASCADE",
+        // allowNull: false,
+        // references: {
+        //   model: 'districts',
+        //   key: 'id',
+        // },
       },
       party: {
         type: Sequelize.STRING,

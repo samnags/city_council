@@ -5,7 +5,7 @@ const { district } = require('../models');
 
 module.exports = {
   create(req, res) {
-    let newMember = _.pick(req.body, 'firstName', 'lastName', 'party', 'districtId', 'firstDay', 'inOffice');
+    let newMember = _.pick(req.body, 'firstName', 'lastName', 'party', 'district', 'firstDay', 'inOffice');
     console.log(newMember)
     return member
       .create(newMember)
@@ -14,11 +14,7 @@ module.exports = {
   },
   list(req, res) {
     return member
-    .findAll({
-      include: [{
-        model: district,        
-      }],
-    })
+    .findAll()
       .then(members => res.status(200).send(members))
       .catch(error => res.status(400).send(error))
   }
@@ -33,3 +29,8 @@ module.exports = {
 //     as: 'districtId',
 //   }],
 // })
+// .findAll({
+//       include: [{
+//         model: district,        
+//       }],
+//     })
