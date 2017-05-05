@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www && cd client && npm start",
+    "other" : "concurrently \"npm run start\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
@@ -19,5 +20,8 @@
     "pg": "^6.1.5",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.30.4"
+  },
+  "devDependencies": {
+    "concurrently": "^3.4.0"
   }
 }
