@@ -12,6 +12,13 @@ const cookieParser = require('cookie-parser');
 // Sets up the express app
 const app = express();
 
+app.set('port', (process.env.PORT || 3001));
+
+// Express only serves static assets in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
 // Log requests to the console
 app.use(logger('dev'));
 
@@ -31,4 +38,6 @@ app.get('*', function (request, response){
 });
 
 
-module.exports = app;
+app.listen(app.get('port'), () => {
+  console.log(`Running: http://localhost:${app.get('port')}/`); // eslint-disable-line no-console
+});
