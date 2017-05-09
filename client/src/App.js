@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Table from './components/table';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Test</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <Table members={[
+          {"id":1,"firstName":"Gilbert","lastName":"Cedillo","party":"Democrat","district":1},
+          {"id":2,"firstName":"Paul","lastName":"Krekorian","party":"Democrat","district":2},
+          {"id":3,"firstName":"Bob","lastName":"Blumenfield","party":"Democrat","district":3}]}
+        />
       </div>
     );
   }
