@@ -1,7 +1,8 @@
 export function selectMember(member) {        
     return {        
         type: 'MEMBER_SELECTED',
-        payload: member        
+        payload: member,
+        party: member.party        
     }
     
 }

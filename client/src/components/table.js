@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+// import { bindActionCreators } from 'redux'
 import * as BS from 'react-bootstrap';
 // import TableRow from './table_row'
 import { selectMember } from '../actions/index'
 
+
+
 class Table extends Component {    
+    
+    handleClick(member) {        
+        this.props.selectMember(member)
+    }
     
     renderMembers = (member) => {        
         return (
             <tr 
                 key={member.district}
-                onClick={() => this.props.selectMember(member)}>
+                onClick={() => this.handleClick(member)}>
             <td>
                 {member.firstName}
             </td>
@@ -30,7 +36,7 @@ class Table extends Component {
         return (
             <div>
                 <h1>Select Your Council Member</h1>                
-                    <BS.Table striped condensed bordered hover responsive>
+                    <BS.Table condensed bordered hover responsive>
                         <thead>
                             <tr>                            
                                 <th>First Name</th>
@@ -47,9 +53,8 @@ class Table extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ selectMember}, dispatch)
-}
+// function mapDispatchToProps(dispatch) {
+//     return bindActionCreators({ selectMember}, dispatch)
+// }
 
-
-export default connect(null, mapDispatchToProps)(Table);
+export default connect(null, { selectMember })(Table);
