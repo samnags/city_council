@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import * as BS from 'react-bootstrap';
-import TableRow from './table_row'
+// import TableRow from './table_row'
+import { selectMember } from '../actions/index'
 
-class Table extends Component {
-    // don't need constructor if we don't need this.props in constructor
+class Table extends Component {    
     
     renderMembers = (member) => {        
-        return <TableRow 
-                    onClick={this.props.onClick}
-                    key={member.district}
-                    firstName={member.firstName}
-                    lastName={member.lastName}
-                    district={member.district}                    
-                />
+        return (
+            <tr 
+                key={member.district}
+                onClick={() => this.props.selectMember(member)}>
+            <td>
+                {member.firstName}
+            </td>
+            <td>
+                {member.lastName}
+            </td>
+            <td>
+                {member.district}
+            </td>      
+            </tr>
+        )
     }
-
+     
     render() {
         const { members } = this.props
         return (
@@ -37,4 +47,9 @@ class Table extends Component {
     }
 }
 
-export default Table;
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ selectMember}, dispatch)
+}
+
+
+export default connect(null, mapDispatchToProps)(Table);

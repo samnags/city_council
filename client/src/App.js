@@ -5,15 +5,6 @@ import Table from './components/table';
 import * as BS from 'react-bootstrap';
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props)
-    
-  // }
-
-  handleClick = () => {
-      alert("hi")
-  }
-
 
   render() {
     
@@ -22,9 +13,7 @@ class App extends Component {
         <BS.Col
         lg={4}
         >
-          <Table 
-          onClick={this.handleClick}
-          members={this.props.members}
+          <Table members={this.props.members}
           />
         </BS.Col>
       </div>
