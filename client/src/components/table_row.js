@@ -1,8 +1,10 @@
 import React from 'react'
 
 const TableRow = (props) => {
+  const clickHandler = props.onClick
+
   return (
-    <tr>
+    <tr onClick={clickHandler}>
       <td>
         {props.firstName}
       </td>
@@ -18,3 +20,4 @@ const TableRow = (props) => {
 
 
 module.exports = TableRow
+

@@ -4,12 +4,14 @@ import TableRow from './table_row'
 
 class Table extends Component {
     // don't need constructor if we don't need this.props in constructor
-    renderMembers(member) {
+    
+    renderMembers = (member) => {        
         return <TableRow 
+                    onClick={this.props.onClick}
                     key={member.district}
                     firstName={member.firstName}
                     lastName={member.lastName}
-                    district={member.district}
+                    district={member.district}                    
                 />
     }
 
@@ -18,7 +20,7 @@ class Table extends Component {
         return (
             <div>
                 <h1>Select Your Council Member</h1>                
-                    <BS.Table striped bordered hover responsive>
+                    <BS.Table striped condensed bordered hover responsive>
                         <thead>
                             <tr>                            
                                 <th>First Name</th>

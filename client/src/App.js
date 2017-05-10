@@ -1,20 +1,41 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import './App.css';
 import Table from './components/table';
-
+import * as BS from 'react-bootstrap';
 
 class App extends Component {
+  // constructor(props) {
+  //   super(props)
+    
+  // }
+
+  handleClick = () => {
+      alert("hi")
+  }
+
+
   render() {
+    
     return (
       <div>
-        <Table members={[
-          {"id":1,"firstName":"Gilbert","lastName":"Cedillo","party":"Democrat","district":1},
-          {"id":2,"firstName":"Paul","lastName":"Krekorian","party":"Democrat","district":2},
-          {"id":3,"firstName":"Bob","lastName":"Blumenfield","party":"Democrat","district":3}]}
-        />
+        <BS.Col
+        lg={4}
+        >
+          <Table 
+          onClick={this.handleClick}
+          members={this.props.members}
+          />
+        </BS.Col>
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    members: state.members
+  }
+}
+
+export default connect(mapStateToProps)(App);
